@@ -1,0 +1,39 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: no-commit-to-branch
+      - id: check-yaml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-case-conflict
+      - id: check-merge-conflict
+#      - id: check-symlinks
+#      - id: destroyed-symlinks
+      - id: check-json
+#      - id: check-toml
+#      - id: check-xml
+
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.18.1
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.12.1-beta
+    hooks:
+      - id: hadolint
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.6.26
+    hooks:
+      - id: actionlint
+
+ci:
+  autofix_commit_msg: "⚙ auto fixes [pre-commit.ci]"
+  autoupdate_commit_msg: "⚙ auto updates [pre-commit.ci]"
+  skip:
+    - hadolint
+    - actionlint
+
