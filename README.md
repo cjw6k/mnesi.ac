@@ -77,6 +77,8 @@ lol
 
    3. Run the bootstrap script.
 
+   4. Relog to refresh the local user profile.
+
       ```shell
       wsl -d Handle
       sudo mkdir /opt/contrib
@@ -84,6 +86,12 @@ lol
       git clone git@github.com:cjw6k/mnesi.ac.git --branch=contrib /opt/contrib
       cd /opt/contrib
       bootstrap/wsl-ubuntu-22.04.3.sh
+      exit
+      wsl -d Handle
       ```
 
-6. to be continued
+6. Start developing.
+
+   ```shell
+   task d:dev
+   ```
