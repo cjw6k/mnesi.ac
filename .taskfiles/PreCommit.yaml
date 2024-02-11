@@ -20,4 +20,3 @@ tasks:
     desc: Update pre-commit hooks
     cmds:
       - pre-commit autoupdate
-

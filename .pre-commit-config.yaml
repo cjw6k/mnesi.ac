@@ -36,4 +36,3 @@ ci:
   skip:
     - hadolint
     - actionlint
-
