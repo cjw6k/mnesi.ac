@@ -1,4 +1,4 @@
-# contrib@mnesi.ac
+# contrib // mnesi.ac
 
 An experimental system for self-publishing.
 
