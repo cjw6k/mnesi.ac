@@ -1,0 +1,20 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: diveb
+
+  dive-ui: dive mnesi.ac:latest
+
+  diveb-ui:
+    cmds:
+      - task: :docker:build
+      - dive mnesi.ac:latest
+
+  dive: dive mnesi.ac:latest --ci
+
+  diveb:
+    cmds:
+      - task: :docker:build
+      - dive mnesi.ac:latest --ci

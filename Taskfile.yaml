@@ -10,7 +10,12 @@ includes:
       - pc
     taskfile: .taskfiles/PreCommit.yaml
 
-#  docker: .taskfiles/Docker.yaml
+  dive: .taskfiles/Dive.yaml
+
+  docker:
+    aliases:
+      - d
+    taskfile: .taskfiles/Docker.yaml
 
 tasks:
   default:

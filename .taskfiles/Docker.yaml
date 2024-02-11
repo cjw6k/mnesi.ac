@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  build: docker build -t mnesi.ac:latest -f Dockerfile .
+
+  run: docker run --rm -it mnesi.ac:latest
+
+  dev:
+    cmds:
+      - task: build
+      - task: run
