@@ -43,6 +43,9 @@ export LS_OPTIONS='--color=auto'
 alias ls='ls $LS_OPTIONS'
 eval "$(dircolors -b "$HOME/.dircolors")"
 
+. ~/.bash_prompt
+PROMPT_COMMAND=_prompt_command
+
 cd /opt/contrib || return
 
 echo -e
