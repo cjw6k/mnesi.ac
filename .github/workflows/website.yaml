@@ -23,15 +23,17 @@ jobs:
           bun-version: 1.0.26
 
       - name: install deps
+        working-directory: src
         run: bun install
 
       - name: build
+        working-directory: src
         run: bun x @11ty/eleventy
 
       - name: upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./website/_site
+          path: ./src/website/_site
 
   deploy:
     needs: build
