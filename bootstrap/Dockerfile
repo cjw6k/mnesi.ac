@@ -13,7 +13,7 @@ ARG EZA_VERSION
 
 RUN apk add --no-cache eza=${EZA_VERSION}
 
-WORKDIR /opt/mnesi.ac
+WORKDIR /opt/contrib
 
 COPY . .
 
