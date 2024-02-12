@@ -1,0 +1,13 @@
+version: '3'
+
+tasks:
+  build: docker build -t mnesi.ac:latest -f Dockerfile .
+
+  run: docker run --rm -it -p 8080:8080 {{.RUN_ARGS}} {{.CLI_ARGS}} mnesi.ac:latest
+
+  dev:
+    cmds:
+      - task: build
+      - task: run
+        vars:
+          RUN_ARGS: "--entrypoint /bin/ash"

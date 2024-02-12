@@ -1,0 +1,10 @@
+function _prompt_command {
+        PREVCMDSTATUS=$?
+        history -a
+        if [ $PREVCMDSTATUS -eq 0 ]; then
+                PS1='\[\e[30m\e[42m\]'
+        else
+                PS1='\[\e[30m\e[41m\]'
+        fi
+        PS1="${PS1}\#/\!\[\e[0m\]\[\e[38;5;100m\e[48;5;232m\] \u@\h\[\e[0m\e[48;5;232m\]:\[\e[94m\]\w \[\e[0m\]"
+}

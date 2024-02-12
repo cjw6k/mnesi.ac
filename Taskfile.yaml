@@ -5,12 +5,21 @@ version: '3'
 silent: true
 
 includes:
-  precommit:
-    aliases:
-      - pc
-    taskfile: .taskfiles/PreCommit.yaml
+  bootstrap: .taskfiles/Bootstrap.yaml
 
-#  docker: .taskfiles/Docker.yaml
+  context:
+    aliases: [c]
+    taskfile: .taskfiles/Context.yaml
+
+  dive: .taskfiles/Dive.yaml
+
+  docker:
+    aliases: [d]
+    taskfile: .taskfiles/Docker.yaml
+
+  precommit:
+    aliases: [pc]
+    taskfile: .taskfiles/PreCommit.yaml
 
 tasks:
   default:

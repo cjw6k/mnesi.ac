@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+export HISTFILE=~/.bash_history
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTIGNORE="[  ]*:[bf]g:exit:pwd:clear:ls:ls -la:history"
+HISTORY_TIME_COLOR="\033[38;5;235m"
+HISTORY_TIME_NOCOLOR="\033[0m"
+HISTTIMEFORMAT=$(echo -e ${HISTORY_TIME_COLOR}[%F %T] $HISTORY_TIME_NOCOLOR)
+export HISTTIMEFORMAT
+export HISTCONTROL="ignoredups"
+
+export EDITOR=/usr/bin/nano
+
+export PATH="$PATH:$HOME/.bin"
+
+shopt -s cdspell
+shopt -s checkhash
+shopt -s checkwinsize
+shopt -s cmdhist
+shopt -s dirspell
+shopt -s globstar
+shopt -s histappend
+shopt -s histverify
+shopt -s nocaseglob
+shopt -s no_empty_cmd_completion
+
+export PROMPT_DIRTRIM=3
+
+# Ignore ctrl+s, ctrl+q
+stty -ixon -ixoff
+
+# Ignore ctrl+d
+set -o ignoreeof
+set -o noclobber
+
+bind "set completion-ignore-case on"
+bind "set completion-map-case on"
+bind "set show-all-if-ambiguous on"
+bind "set mark-symlinked-directories on"
+
+export LS_OPTIONS='--color=auto'
+alias ls='ls $LS_OPTIONS'
+eval "$(dircolors -b "$HOME/.dircolors")"
+
+. ~/.bash_prompt
+PROMPT_COMMAND=_prompt_command
+
+cd /opt/contrib || return
+
+echo -e
