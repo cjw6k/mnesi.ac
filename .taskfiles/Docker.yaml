@@ -1,13 +1,38 @@
 version: '3'
 
 tasks:
-  build: docker build -t mnesi.ac:latest -f Dockerfile .
+  build: docker build -t hearth:latest -f Dockerfile . --target main
 
-  run: docker run --rm -it -p 8080:8080 {{.RUN_ARGS}} {{.CLI_ARGS}} mnesi.ac:latest
+  buildc:  docker build -t hearth-contrib:latest -f Dockerfile . --target contrib
+
+  run: docker run --rm -it -p 8080:8080 {{.RUN_ARGS}} {{.CLI_ARGS}} hearth:latest
+
+  runc: docker run --rm -it -p 8080:8080 {{.RUN_ARGS}} {{.CLI_ARGS}} hearth-contrib:latest
+
+  sh:
+    cmds:
+      - task: build
+      - task: run
+        vars:
+          RUN_ARGS: "--entrypoint /bin/ash"
 
   dev:
     cmds:
       - task: build
       - task: run
         vars:
+          RUN_ARGS: "-v /opt/contrib/home:/opt/contrib -v /opt/contrib/_site"
+
+  shc:
+    cmds:
+      - task: buildc
+      - task: runc
+        vars:
           RUN_ARGS: "--entrypoint /bin/ash"
+
+  devc:
+    cmds:
+      - task: buildc
+      - task: runc
+        vars:
+          RUN_ARGS: "-v /opt/contrib/home:/opt/contrib -v /opt/contrib/_site"

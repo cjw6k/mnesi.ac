@@ -8,7 +8,10 @@ ARG BUN_VERSION=1.0.26
 ARG CURL_VERSION=8.5.0-r0
 
 
-FROM alpine:${ALPINE_VERSION}@${ALPINE_HASH}
+###
+### contrib
+###
+FROM alpine:${ALPINE_VERSION}@${ALPINE_HASH} AS contrib
 
 ARG ALPINE_GLIBC_REPO
 ARG ALPINE_GLIBC_VERSION
@@ -39,13 +42,19 @@ RUN apk add --virtual .build_deps --no-cache gcompat=${GCOMPAT_VERSION} \
 RUN curl -fsSL https://bun.sh/install | bash -s "bun-v${BUN_VERSION}" \
  && ln -s /root/.bun/bin/bun /usr/local/bin/bun
 
-WORKDIR /opt/contrib
+WORKDIR /opt/hearth
 
-COPY src/ .
-
+COPY home/bun.lockb home/package.json ./
 RUN bun install
 
 EXPOSE 8080
 
 ENTRYPOINT ["bun"]
 CMD ["x", "@11ty/eleventy", "--serve"]
+
+###
+### main
+###
+FROM contrib AS main
+
+COPY home/ .

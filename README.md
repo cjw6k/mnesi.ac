@@ -1,4 +1,4 @@
-# contrib // mnesi.ac
+# hearth
 
 An experimental system for self-publishing.
 
@@ -54,7 +54,7 @@ lol
 
       ```shell
       wsl -d Handle
-      echo $'\n'[user]$'\n'default=handle >> /etc/wsl.conf
+      echo $'\n[user]\ndefault=handle' >> /etc/wsl.conf
       exit
       wsl -t Handle
       ```
@@ -73,7 +73,7 @@ lol
 
    1. Launch the Handle distro in WSL.
 
-   2. Clone the repo. *Author recommends: fork cjw6k/mnesi.ac and get a clone of your own e.g. `git clone git@github.com:you/handle.git --branch=contrib /opt/contrib`*
+   2. Clone the repo. *Author recommends: fork cjw6k/hearth and get a main of your own e.g. `git clone git@github.com:you/handle.git --branch=contrib /opt/hearth`*
 
    3. Run the bootstrap script.
 
@@ -81,11 +81,11 @@ lol
 
       ```shell
       wsl -d Handle
-      sudo mkdir /opt/contrib
-      sudo chown handle:handle /opt/contrib
-      git clone git@github.com:cjw6k/mnesi.ac.git --branch=contrib /opt/contrib
-      cd /opt/contrib
-      bootstrap/wsl-ubuntu-22.04.3.sh
+      sudo mkdir /opt/hearth
+      sudo chown handle:handle /opt/hearth
+      git clone git@github.com:cjw6k/hearth.git --branch=contrib /opt/hearth
+      cd /opt/hearth
+      .bootstrap/wsl-ubuntu-22.04.3.sh
       exit
       wsl -d Handle
       ```

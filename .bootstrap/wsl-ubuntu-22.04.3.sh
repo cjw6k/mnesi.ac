@@ -22,9 +22,9 @@ chmod +x hadolint-Linux-x86_64
 sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint
 
 DIVE_VERSION=$(curl -sL "https://api.github.com/repos/wagoodman/dive/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
-curl -OL https://github.com/wagoodman/dive/releases/download/v${DIVE_VERSION}/dive_${DIVE_VERSION}_linux_amd64.deb
-sudo apt install ./dive_${DIVE_VERSION}_linux_amd64.deb
-rm ./dive_${DIVE_VERSION}_linux_amd64.deb
+curl -OL "https://github.com/wagoodman/dive/releases/download/v${DIVE_VERSION}/dive_${DIVE_VERSION}_linux_amd64.deb"
+sudo apt install "./dive_${DIVE_VERSION}_linux_amd64.deb"
+rm "./dive_${DIVE_VERSION}_linux_amd64.deb"
 
 dir="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 cp "$dir"/profile/.b* "$dir"/profile/.d* "$dir"/profile/.h* ~/

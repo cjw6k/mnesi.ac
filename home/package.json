@@ -1,0 +1,6 @@
+{
+  "name": "home",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

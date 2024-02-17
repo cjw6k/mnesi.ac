@@ -1,6 +1,9 @@
 .git/
+.github/
+.idea/
 .taskfiles/
-bootstrap/
+.bootstrap/
+**/.gitkeep
 .dockerignore
 .pre-commit-config.yaml
 Dockerfile
