@@ -5,16 +5,16 @@ tasks:
     cmds:
       - task: diveb
 
-  dive-ui: dive mnesi.ac:latest
+  dive-ui: dive hearth:latest
 
   diveb-ui:
     cmds:
       - task: :docker:build
-      - dive mnesi.ac:latest
+      - dive hearth:latest
 
-  dive: dive mnesi.ac:latest --ci
+  dive: dive hearth:latest --ci
 
   diveb:
     cmds:
       - task: :docker:build
-      - dive mnesi.ac:latest --ci
+      - dive hearth:latest --ci
