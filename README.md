@@ -85,7 +85,7 @@ lol
       sudo chown handle:handle /opt/contrib
       git clone git@github.com:cjw6k/mnesi.ac.git --branch=contrib /opt/contrib
       cd /opt/contrib
-      bootstrap/wsl-ubuntu-22.04.3.sh
+      .bootstrap/wsl-ubuntu-22.04.3.sh
       exit
       wsl -d Handle
       ```

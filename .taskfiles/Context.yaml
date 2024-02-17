@@ -3,5 +3,5 @@ version: '3'
 tasks:
   default:
     cmds:
-      - docker build -f bootstrap/Dockerfile -t mnesi.ac-context:latest . --target context
+      - docker build -f .bootstrap/Dockerfile -t mnesi.ac-context:latest . --target context
       - docker run --rm -it mnesi.ac-context:latest
