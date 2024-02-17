@@ -5,6 +5,7 @@
 .bootstrap/
 **/.gitkeep
 .dockerignore
+.gitignore
 .pre-commit-config.yaml
 Dockerfile
 Taskfile.yaml
